@@ -25,9 +25,10 @@ const questions = [
         message: 'What is the usage information for your project?',
     },
     {
-        type: 'input',
-        name: 'projectLisence',
+        type: 'list',
+        name: 'projectLicense',
         message: 'What is the lisence for your project?',
+        choices: ['MIT', 'Mozilla', 'ISC']
     },
     {
         type: 'input',
@@ -41,8 +42,6 @@ const questions = [
     },
 
 ];
-
-// Project title, description, installation instructions, usage info, lisence badge, contribution guidelines, and test instructions
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -58,7 +57,7 @@ function init() {
         console.table(answers)
         const readmeContent = generateMarkdown(answers);
         console.log(readmeContent)
-        writeToFile('READ.md', readmeContent)
+        writeToFile('README.md', readmeContent)
     })
 }
 
